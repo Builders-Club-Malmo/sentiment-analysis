@@ -154,6 +154,23 @@ For those wanting to explore beyond the basics:
 - **sentdex**: [Intro to Text Classification](https://www.youtube.com/watch?v=zi16nl82AMA)
 - **freeCodeCamp**: [Machine Learning with Python (Scikit-learn)](https://www.youtube.com/watch?v=hDKCxebp88A)
 
+### Evaluation Metrics Resources
+
+- **[Scikit-Learn: Classification Metrics](https://scikit-learn.org/stable/modules/model_evaluation.html#classification-metrics)**  
+  *Covers accuracy, precision, recall, F1-score, and more.*
+
+- **[Understanding Precision, Recall, and F1 Score (StatQuest)](https://www.youtube.com/watch?v=4jRBRDbJemM)**  
+  *A great video explanation on how these metrics work.*
+
+- **[Confusion Matrix Explained](https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62)**  
+  *Learn how to interpret confusion matrices for model evaluation.*
+
+- **[Confusion Matrix Video Explanation](https://www.youtube.com/watch?v=Kdsp6soqA7o)**  
+  *A video explanation of confusion matrices.*
+
+- **[ROC and AUC Explained](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)**  
+  *Explains how to use ROC curves and AUC to assess model performance.*
+
 ### Advanced Tutorials
 - [Hugging Face Transformers](https://huggingface.co/transformers/) for deep learning models.
 - [Explaining Black Box Models](https://christophm.github.io/interpretable-ml-book/lime.html) (LIME and SHAP).
