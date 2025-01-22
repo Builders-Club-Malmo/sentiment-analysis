@@ -119,7 +119,14 @@ Feel free to use alternative methods to achieve the same functionality.
 5. **Prepare Your Presentation (1–2 hours)**
    - Summarize your approach, findings, and next steps for the final meeting.
 
----
+
+## 📊 Data Sources
+Participants can use any dataset of their choice. Here are some recommended sources:
+
+- **IMDb Movie Reviews** – [Stanford Sentiment Dataset](https://ai.stanford.edu/~amaas/data/sentiment/)
+- **Twitter US Airline Sentiment** – [Kaggle Dataset](https://www.kaggle.com/datasets/crowdflower/twitter-airline-sentiment/twitter-airline-sentiment)
+- **Yelp Reviews** – [Yelp Open Dataset](https://www.yelp.com/dataset)
+
 
 ## Intermediate Challenges
 
