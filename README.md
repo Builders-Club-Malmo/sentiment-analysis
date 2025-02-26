@@ -141,7 +141,15 @@ For those wanting to explore beyond the basics:
 7. **Responsive Design for Mobile**  
    - Ensure that your frontend tool is mobile-friendly and provides the same functionality across devices.
 
----
+
+## 📊 Data Sources
+Participants can use any dataset of their choice. Here are some recommended sources:
+
+- **IMDb Movie Reviews** – [Stanford Sentiment Dataset](https://ai.stanford.edu/~amaas/data/sentiment/)
+- **Twitter US Airline Sentiment** – [Kaggle Dataset](https://www.kaggle.com/datasets/crowdflower/twitter-airline-sentiment/twitter-airline-sentiment)
+- **Yelp Reviews** – [Yelp Open Dataset](https://www.yelp.com/dataset)
+
+Feel free to explore other sentiment datasets!
 
 ## Recommended Resources
 

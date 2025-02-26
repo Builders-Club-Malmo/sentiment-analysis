@@ -1,31 +1,30 @@
-# train.py
-# This script will be used to train your sentiment analysis model.
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Embedding, LSTM, Dense, Dropout, Bidirectional
+from tensorflow.keras.preprocessing.text import Tokenizer
+import pickle
 
-# TODO: Import necessary libraries (e.g., pandas, scikit-learn, joblib)
+def train_model(train_padded, train_labels, val_padded, val_labels, tokenizer):
+    model = Sequential([
+        Embedding(input_dim=10000, output_dim=128, input_length=500),
+        Bidirectional(LSTM(64, return_sequences=True)),
+        Bidirectional(LSTM(32)),
+        Dropout(0.5),
+        Dense(1, activation="sigmoid")
+    ])
 
-def evaluate_model(y_true, y_pred):
-    """
-    Prints evaluation metrics for the model.
-    """
-    # TODO: Implement evaluation logic (e.g., accuracy, precision, recall)
-    pass
+    model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
 
-def train_model(data_path='data/imdb_sample.csv', model_output='model.joblib'):
-    """
-    Step 1: Load your dataset
-    Step 2: Preprocess your text data
-    Step 3: Vectorize the text (e.g., using TfidfVectorizer)
-    Step 4: Train a machine learning model (e.g., Logistic Regression)
-    Step 5: Evaluate the model
-    Step 6: Save the trained model to model.joblib
-    """
-    # TODO: Load dataset using pandas
-    # TODO: Split data into training and testing sets
-    # TODO: Vectorize text data using TfidfVectorizer
-    # TODO: Train a classifier (e.g., Logistic Regression)
-    # TODO: Evaluate the model using the evaluate_model function
-    # TODO: Save the trained model and vectorizer using joblib
-    pass
+    model.summary()
+    model.fit(train_padded, np.array(train_labels), validation_data=(val_padded, np.array(val_labels)), epochs=10, batch_size=128)
 
-if __name__ == '__main__':
-    train_model()
+    # Save the model
+    model.save("sentiment_model.h5")
+
+    # Save the tokenizer
+    with open("tokenizer.pickle", "wb") as handle:
+        pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+    return model

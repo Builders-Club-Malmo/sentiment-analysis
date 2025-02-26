@@ -1,26 +1,26 @@
-# predict.py
-# This script will load your trained model and predict sentiment for new text input.
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+import numpy as np
+import pickle
 
-# TODO: Import necessary libraries (e.g., joblib, preprocess)
+def predict_sentiment(model, tokenizer, review, max_length=500):
+    sequence = tokenizer.texts_to_sequences([review])
+    padded = np.array(pad_sequences(sequence, maxlen=max_length, padding="post", truncating="post"))
+    prediction = model.predict(padded)[0][0]
+    sentiment = "Positive" if prediction > 0.5 else "Negative"
+    return prediction, sentiment
 
-def predict_sentiment(text, model_path='model.joblib'):
-    """
-    Step 1: Load the saved model and vectorizer
-    Step 2: Preprocess the input text
-    Step 3: Vectorize the input text
-    Step 4: Predict sentiment and return the result
-    """
-    # TODO: Load the saved model and vectorizer
-    # TODO: Preprocess the input text
-    # TODO: Vectorize the text
-    # TODO: Predict sentiment
-    pass
+if __name__ == "__main__":
+    # Load the trained model
+    model = load_model("sentiment_model.h5")
 
-if __name__ == '__main__':
-    import sys
-    if len(sys.argv) < 2:
-        print("Usage: python predict.py 'Your text here'")
-    else:
-        text = sys.argv[1]
-        sentiment = predict_sentiment(text)
-        print(f"Sentiment: {sentiment}")
+    # Load the tokenizer
+    with open("tokenizer.pickle", "rb") as handle:
+        tokenizer = pickle.load(handle)
+
+    # Take input string from the user
+    review = input("Enter a review: ")
+
+    # Predict sentiment
+    prediction, sentiment = predict_sentiment(model, tokenizer, review)
+    print(f"Prediction: {prediction}, Sentiment: {sentiment}")

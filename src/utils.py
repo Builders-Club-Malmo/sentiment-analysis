@@ -1,10 +1,7 @@
-# utils.py
-# Contains helper functions for the project.
+from sklearn.metrics import accuracy_score, classification_report
 
-import pandas as pd
-
-def load_data(file_path):
-    """
-    Load the dataset from the given file path.
-    """
-    return pd.read_csv(file_path)
+def evaluate_model(model, test_padded, test_labels):
+    test_predictions = (model.predict(test_padded) > 0.5).astype("int32")
+    accuracy = accuracy_score(test_labels, test_predictions)
+    report = classification_report(test_labels, test_predictions)
+    return accuracy, report
